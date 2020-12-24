@@ -6,12 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Nova Empresa </title>
 </head>
-<body>
-	<% 
-		String nomeEmpresa = (String) request.getAttribute("empresa");
-		System.out.println(nomeEmpresa);
-	%>
-	
-	Empresa  <%= nomeEmpresa %> criada !
+<body>	
+	Empresa ${empresa} criada !
 </body>
 </html>
