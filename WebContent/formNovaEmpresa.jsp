@@ -11,6 +11,7 @@
 <body>
 	<form action="${linkCompletoNovaEmpresa}" method="post">
 		Nome: <input type="text" name="nome">
+		Data Abertura: <input type="date" name="dataAbertura">
 		<input type="submit" value="Enviar">
 	</form>
 </body>
