@@ -5,16 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nova Empresa </title>
+<title>New Company </title>
 </head>
 <body>	
 
-	<c:if test="${not empty empresa}">
-		Empresa ${empresa} criada !
+	<c:if test="${not empty company}">
+		Company ${company} created !
 	</c:if>
 
-	<c:if test="${empty empresa}">
-		Nenhuma Empresa criada !
+	<c:if test="${empty company}">
+		No company created !
 	</c:if>
 	
 </body>

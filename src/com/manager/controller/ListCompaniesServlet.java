@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package com.manager.controller;
 
 import java.io.IOException; 
 import java.util.List;
@@ -8,22 +8,25 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/listaEmpresas")
-public class ListaEmpresas extends HttpServlet {
+import com.manager.model.bean.Company;
+import com.manager.model.dao.DataBase;  
+
+@WebServlet("/listCompanies")
+public class ListCompaniesServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
-		Banco banco = new Banco();
+		DataBase dataBase = new DataBase();
 		
-		List<Empresa> lista = banco.getEmpresas(); 
+		List<Company> list = dataBase.getCompanies(); 
 		
-		request.setAttribute("listaEmpresas", lista);
+		request.setAttribute("listCompanies", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/listCompanies.jsp");
 		
 		rd.forward(request, response);
 
