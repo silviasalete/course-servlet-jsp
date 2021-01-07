@@ -18,11 +18,11 @@ public class ListCompaniesServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
-		DataBase dataBase = new DataBase();
+		DataBase  	dataBase = new DataBase();
 		
-		List<Company> list = dataBase.getCompanies(); 
+		List<Company> list 	 = dataBase.getCompanies(); 
 		
 		request.setAttribute("listCompanies", list);
 

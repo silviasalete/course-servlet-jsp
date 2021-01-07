@@ -22,7 +22,7 @@ public class NewCompanyServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 
-		Date openingDate = null;
+		Date 		  openingDate = null;
 		Company 		  company = new Company();
 		DataBase 		 dataBase = new DataBase(); 
 		String   	  nameCompany = request.getParameter("name"); 
@@ -43,9 +43,15 @@ public class NewCompanyServlet extends HttpServlet {
 		company.setOpeningDate(openingDate);
 		
 		dataBase.add(company); 
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/newCompanyCreated.jsp");
-		request.setAttribute("company", company.getName());
+
+		request.setAttribute("nameCompany", company.getName());
+							
+		/*
+		 * RequestDispatcher rd =
+		 * request.getRequestDispatcher("/newCompanyCreated.jsp");
+		 */
+		RequestDispatcher rd = request.getRequestDispatcher("/listCompanies");
+			
 		rd.forward(request,response);
 		
 	}

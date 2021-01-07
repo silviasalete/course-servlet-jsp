@@ -11,10 +11,19 @@
 </head>
 <body>
 
-<ul>
-	<c:forEach items="${listCompanies}" var="company">
-		<li>${company.name} - <fmt:formatDate value="${company.openingDate}" pattern="dd/MM/yyyy"/></li>
-	</c:forEach>
-</ul>
+	<c:if test="${not empty nameCompany}">
+		Company ${nameCompany} created !
+	</c:if>
+
+	<c:if test="${empty nameCompany}">
+		No company created !
+	</c:if>
+	
+	<ul>
+		<c:forEach items="${listCompanies}" var="listCompanies">
+			<li>${listCompanies.name} - <fmt:formatDate value="${listCompanies.openingDate}" pattern="dd/MM/yyyy"/></li>
+		</c:forEach>
+	</ul>
+	
 </body>
 </html>
