@@ -45,15 +45,12 @@ public class NewCompanyServlet extends HttpServlet {
 		dataBase.add(company); 
 
 		request.setAttribute("nameCompany", company.getName());
-							
-		/*
-		 * RequestDispatcher rd =
-		 * request.getRequestDispatcher("/newCompanyCreated.jsp");
-		 */
-		RequestDispatcher rd = request.getRequestDispatcher("/listCompanies");
-			
-		rd.forward(request,response);
 		
+		response.sendRedirect("listCompanies");
+
+//		RequestDispatcher rd = request.getRequestDispatcher("/listCompanies");
+//		rd.forward(request,response);
+//		
 	}
 
 }
