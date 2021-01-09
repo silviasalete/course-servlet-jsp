@@ -1,13 +1,17 @@
 package com.manager.model.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import com.manager.model.bean.Company;
 
 public class DataBase {
 	
 	private static List<Company> list = new ArrayList<>();
+	Random 				 		 rand = new Random();
+	int 		   		   upperbound = 25;
 	
 	static {
 		Company company1 = new Company();
@@ -22,7 +26,8 @@ public class DataBase {
 	}
 	
 	public void add(Company company) { 
-		
+
+		company.setId(rand.nextInt(upperbound));
 		list.add(company);
 		
 	}
@@ -33,8 +38,15 @@ public class DataBase {
 		
 	}
 	
-	public void remove(int id) {
-		Company company = list.get(id);
-		list.remove(company); 
-	}
+	public void removeCompany(Integer id) {
+		Iterator<Company> iterator = list.iterator();
+		
+		while(iterator.hasNext()) {
+			Company company = iterator.next();
+			if(company.getId() == id) {
+				list.remove(company);
+			}
+		}
+
+	} 
 }

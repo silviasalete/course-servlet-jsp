@@ -27,8 +27,6 @@ public class NewCompanyServlet extends HttpServlet {
 		Company 		  company = new Company();
 		DataBase 		 dataBase = new DataBase(); 
 		String   	  nameCompany = request.getParameter("name"); 
-		Random 				 rand = new Random();
-		int 		   upperbound = 25;
 		
 		try {
 			
@@ -42,7 +40,6 @@ public class NewCompanyServlet extends HttpServlet {
 			
 		}
 		
-		company.setId(rand.nextInt(upperbound));
 		company.setName(nameCompany);
 		company.setOpeningDate(openingDate);
 		
