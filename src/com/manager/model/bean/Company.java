@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class Company {
 
-	private    int id;
-	private String name;
-	private Date   openingDate = new Date();
-	
-	public int getId() {
+	private Integer id;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
+	private String name;
+	private Date   openingDate = new Date(); 
+	
 	public String getName() {
 		return name;
 	}

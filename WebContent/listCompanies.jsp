@@ -3,6 +3,7 @@
 <%@ page import="java.util.List,com.manager.model.bean.Company" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:url value="/removeCompany" var="fullLinkRemoveCompany" />
 <!DOCTYPE html  >
 <html>
 <head>
@@ -21,7 +22,11 @@
 	
 	<ul>
 		<c:forEach items="${listCompanies}" var="listCompanies">
-			<li>${listCompanies.name} - <fmt:formatDate value="${listCompanies.openingDate}" pattern="dd/MM/yyyy"/></li>
+			<li>
+				${listCompanies.name} - <fmt:formatDate value="${listCompanies.openingDate}" pattern="dd/MM/yyyy"/>
+				<a href="">editar</a> - 
+				<a href="${fullLinkRemoveCompany}?id=${listCompanies.id}">remover</a>
+			</li>
 		</c:forEach>
 	</ul>
 	

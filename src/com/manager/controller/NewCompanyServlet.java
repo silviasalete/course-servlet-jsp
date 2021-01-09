@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +27,8 @@ public class NewCompanyServlet extends HttpServlet {
 		Company 		  company = new Company();
 		DataBase 		 dataBase = new DataBase(); 
 		String   	  nameCompany = request.getParameter("name"); 
+		Random 				 rand = new Random();
+		int 		   upperbound = 25;
 		
 		try {
 			
@@ -38,7 +41,8 @@ public class NewCompanyServlet extends HttpServlet {
 			throw new ServletException(e);
 			
 		}
-
+		
+		company.setId(rand.nextInt(upperbound));
 		company.setName(nameCompany);
 		company.setOpeningDate(openingDate);
 		
