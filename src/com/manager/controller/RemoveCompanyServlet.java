@@ -15,8 +15,9 @@ public class RemoveCompanyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String parameterId = request.getParameter("id");
-		DataBase dataBase = new DataBase();
-		dataBase.removeCompany(Integer.parseInt(parameterId));
+		Integer 		id = Integer.valueOf(parameterId);		
+		DataBase  dataBase = new DataBase();
+		dataBase.removeCompany(id);
 		 
 		response.sendRedirect("listCompanies");
 	}  

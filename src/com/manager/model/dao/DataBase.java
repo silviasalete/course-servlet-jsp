@@ -9,17 +9,16 @@ import com.manager.model.bean.Company;
 
 public class DataBase {
 	
-	private static List<Company> list = new ArrayList<>();
-	Random 				 		 rand = new Random();
-	int 		   		   upperbound = 25;
+	private static   List<Company> list = new ArrayList<>();
+	private static Integer sequenialKey = 1; 
 	
 	static {
 		Company company1 = new Company();
 		company1.setName("Company 1");
-		company1.setId(1);
+		company1.setId(sequenialKey++);
 		Company company2 = new Company();
 		company2.setName("Company 2");
-		company2.setId(2);
+		company2.setId(sequenialKey++);
 		
 		list.add(company1);
 		list.add(company2);
@@ -27,7 +26,7 @@ public class DataBase {
 	
 	public void add(Company company) { 
 
-		company.setId(rand.nextInt(upperbound));
+		company.setId(DataBase.sequenialKey++);
 		list.add(company);
 		
 	}
@@ -39,14 +38,33 @@ public class DataBase {
 	}
 	
 	public void removeCompany(Integer id) {
+		
 		Iterator<Company> iterator = list.iterator();
 		
 		while(iterator.hasNext()) {
+			
 			Company company = iterator.next();
+			
 			if(company.getId() == id) {
-				list.remove(company);
+
+				iterator.remove();
 			}
 		}
 
+	}
+
+	public void updateCompany(Integer id) {
+
+		
+	}
+
+	public Company getCompanyById(Integer id) {
+
+		for (Company company : list) {
+			if (company.getId() ==  id) {
+				return company;
+			}
+		}
+		return null;
 	} 
 }

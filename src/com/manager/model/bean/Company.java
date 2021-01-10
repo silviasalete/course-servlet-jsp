@@ -5,15 +5,15 @@ import java.util.Date;
 public class Company {
 
 	private Integer id;
+	private String name;
+	private Date   openingDate = new Date(); 
+
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	private String name;
-	private Date   openingDate = new Date(); 
-	
 	public String getName() {
 		return name;
 	}
