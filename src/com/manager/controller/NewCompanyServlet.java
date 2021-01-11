@@ -31,8 +31,8 @@ public class NewCompanyServlet extends HttpServlet {
 		try {
 			
 			String   parameterOpeningDate = request.getParameter("openingDate");			
-			SimpleDateFormat 		  sdf = new SimpleDateFormat("yyyy-MM-dd");
-							  openingDate = sdf.parse(parameterOpeningDate);
+			SimpleDateFormat 		  sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+							  openingDate = sdf.parse(parameterOpeningDate); 
 						
 		} catch (ParseException e) {
 			

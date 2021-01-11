@@ -1,6 +1,7 @@
 package com.manager.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,14 +19,15 @@ public class UpdateCompanyServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String parameterId = request.getParameter("id");
-		Integer         id = Integer.valueOf(parameterId);
-		DataBase  dataBase = new DataBase();
-		
-		Company company = dataBase.getCompanyById(id);
-		
+		String 	 parameterId = request.getParameter("id");
+		Integer           id = Integer.valueOf(parameterId);
+		DataBase 	dataBase = new DataBase();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Company 	 company = dataBase.getCompanyById(id);
+		String 		    date = sdf.format(company.getOpeningDate());
 
 		request.setAttribute("company", company);
+		request.setAttribute("dateFormat", date);
 
 		RequestDispatcher rd = request.getRequestDispatcher("/formUpdateCompany.jsp");
 		
