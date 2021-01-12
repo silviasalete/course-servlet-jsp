@@ -1,7 +1,9 @@
 package com.manager.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,13 +38,34 @@ public class UpdateCompanyServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 
-		String 		  parameterName = req.getParameter("name");
-		String parameterOpeningDate = req.getParameter("openingDate");
+		String 		  parameterName = request.getParameter("name");
+		String 		  parameterId = request.getParameter("id");
+		Date openingDate = new Date();
+		DataBase dataBase = new DataBase();
 		
+		try {
+
+			String parameterOpeningDate = request.getParameter("openingDate");		
+			SimpleDateFormat 		  sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+							  openingDate = sdf.parse(parameterOpeningDate); 
+						
+		} catch (ParseException e) {
+			
+			throw new ServletException(e);
+			
+		}
+
+		Company company =dataBase.getCompanyById(Integer.valueOf(parameterId));
 		
+		company.setName(parameterName);
+		company.setOpeningDate(openingDate); 
 		
+		dataBase.updateCompany(company); 
+
+		response.sendRedirect("listCompanies");
+
 	}
 
 }

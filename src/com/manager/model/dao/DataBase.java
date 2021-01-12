@@ -48,12 +48,13 @@ public class DataBase {
 			if(company.getId() == id) {
 
 				iterator.remove();
+
 			}
 		}
 
 	}
 
-	public void updateCompany(Integer id) {
+	public void updateCompany(Company company) {
 
 		
 	}

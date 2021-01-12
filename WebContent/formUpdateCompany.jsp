@@ -11,6 +11,7 @@
 	<form action="${fullLinkNewCompany}" method="post">
 		Name        : <input type="text" name="name" value="${company.name}">
 		Opening Date: <input type="date" name="openingDate" value="${dateFormat}"> 
+					  <input type="hidden" name="id" value="${company.id}"/>
 					  <input type="submit" value="Update">
 	</form>
 </body>
