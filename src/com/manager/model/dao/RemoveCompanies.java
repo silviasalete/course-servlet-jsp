@@ -16,6 +16,6 @@ public class RemoveCompanies {
 		DataBase  dataBase = new DataBase();
 		dataBase.removeCompany(id);
 		 
-		response.sendRedirect("listCompanies");
+		response.sendRedirect("mainServlet?action=ListCompanies");
 	}
 }

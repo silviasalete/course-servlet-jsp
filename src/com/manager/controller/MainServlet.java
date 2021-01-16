@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.manager.model.dao.ListCompanies;
 import com.manager.model.dao.NewCompany;
 import com.manager.model.dao.RemoveCompanies;
+import com.manager.model.dao.ShowCompanies;
 import com.manager.model.dao.UpdateCompanies;
 
 
@@ -30,16 +31,20 @@ public class MainServlet extends HttpServlet {
 			RemoveCompanies removeCompanies = new RemoveCompanies();
 			removeCompanies.performs(request, response);
 			
-		} else if(parameterAction.equals("UpdateCompanies")) {
+		} else if(parameterAction.equals("ShowCompanies")) {
 			
-			UpdateCompanies updateCompanies = new UpdateCompanies();
-			updateCompanies.performs(request, response);
+			ShowCompanies showCompanies = new ShowCompanies();
+			showCompanies.performs(request, response);
 			
 		} else if(parameterAction.equals("NewCompany")) {
 			
-			NewCompany newCompany = new  NewCompany();
-			
+			NewCompany newCompany = new  NewCompany();			
 			newCompany.performs(request, response);
+			
+		} else if(parameterAction.equals("UpdateCompanies")) {
+			
+			UpdateCompanies updateCompanies = new UpdateCompanies();
+			updateCompanies.performs(request,response);
 		}
 			
 	}

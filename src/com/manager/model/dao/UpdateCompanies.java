@@ -11,19 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.manager.model.bean.Company;
 
-public class NewCompany {
+public class UpdateCompanies {
 
 	public void performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Adding new compan");
-		
-		Date 		  openingDate = null;
-		Company 		  company = new Company();
-		DataBase 		 dataBase = new DataBase(); 
-		String   	  nameCompany = request.getParameter("name"); 
+		String 		  parameterName = request.getParameter("name");
+		String 		  parameterId = request.getParameter("id");
+		Date openingDate = new Date();
+		DataBase dataBase = new DataBase();
 		
 		try {
-			
-			String   parameterOpeningDate = request.getParameter("openingDate");			
+
+			String parameterOpeningDate = request.getParameter("openingDate");		
 			SimpleDateFormat 		  sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 							  openingDate = sdf.parse(parameterOpeningDate); 
 						
@@ -32,14 +30,14 @@ public class NewCompany {
 			throw new ServletException(e);
 			
 		}
-		
-		company.setName(nameCompany);
-		company.setOpeningDate(openingDate);
-		
-		dataBase.add(company); 
 
-		request.setAttribute("nameCompany", company.getName());
+		Company company =dataBase.getCompanyById(Integer.valueOf(parameterId));
 		
+		company.setName(parameterName);
+		company.setOpeningDate(openingDate); 
+		
+		dataBase.updateCompany(company); 
+
 		response.sendRedirect("mainServlet?action=ListCompanies");
 
 	}
