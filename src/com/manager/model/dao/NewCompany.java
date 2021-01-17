@@ -13,7 +13,7 @@ import com.manager.model.bean.Company;
 
 public class NewCompany {
 
-	public void performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Adding new compan");
 		
 		Date 		  openingDate = null;
@@ -40,7 +40,7 @@ public class NewCompany {
 
 		request.setAttribute("nameCompany", company.getName());
 		
-		response.sendRedirect("mainServlet?action=ListCompanies");
+		return "redirect:mainServlet?action=ListCompanies";
 
 	}
 }

@@ -13,7 +13,7 @@ import com.manager.model.bean.Company;
 
 public class UpdateCompanies {
 
-	public void performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String 		  parameterName = request.getParameter("name");
 		String 		  parameterId = request.getParameter("id");
 		Date openingDate = new Date();
@@ -38,7 +38,7 @@ public class UpdateCompanies {
 		
 		dataBase.updateCompany(company); 
 
-		response.sendRedirect("mainServlet?action=ListCompanies");
+		return"redirect:mainServlet?action=ListCompanies";
 
 	}
 }

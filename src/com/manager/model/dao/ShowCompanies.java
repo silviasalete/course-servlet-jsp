@@ -12,7 +12,7 @@ import com.manager.model.bean.Company;
 
 public class ShowCompanies {
 
-	public void performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		
 		System.out.println("updating companies");
 		
@@ -26,9 +26,6 @@ public class ShowCompanies {
 		request.setAttribute("company", company);
 		request.setAttribute("dateFormat", date);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/formUpdateCompany.jsp");
-		
-		rd.forward(request, response);
-
+		return "forward:/formUpdateCompany.jsp";
 	}
 }

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class RemoveCompanies {
 
-	public void performs(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String performs(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		System.out.println("removing companies");
 		
@@ -16,6 +16,6 @@ public class RemoveCompanies {
 		DataBase  dataBase = new DataBase();
 		dataBase.removeCompany(id);
 		 
-		response.sendRedirect("mainServlet?action=ListCompanies");
+		return "redirect:mainServlet?action=ListCompanies";
 	}
 }

@@ -12,7 +12,7 @@ import com.manager.model.bean.Company;
 
 public class ListCompanies {
 
-	public void performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		System.out.println("listing comines");
 		
@@ -21,10 +21,8 @@ public class ListCompanies {
 		List<Company> list 	 = dataBase.getCompanies(); 
 		
 		request.setAttribute("listCompanies", list);
-
-		RequestDispatcher rd = request.getRequestDispatcher("/listCompanies.jsp");
 		
-		rd.forward(request, response);
+		return "forward:/listCompanies.jsp";
 
 	}
 }
