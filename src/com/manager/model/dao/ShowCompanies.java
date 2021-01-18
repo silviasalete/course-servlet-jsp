@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.manager.model.bean.Company;
 
-public class ShowCompanies {
+public class ShowCompanies implements Action {
 
 	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		

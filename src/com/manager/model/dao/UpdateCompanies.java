@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.manager.model.bean.Company;
 
-public class UpdateCompanies {
+public class UpdateCompanies implements Action {
 
 	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String 		  parameterName = request.getParameter("name");

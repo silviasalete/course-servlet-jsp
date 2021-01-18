@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.manager.model.dao.Action;
 import com.manager.model.dao.AddCompany;
 import com.manager.model.dao.ListCompanies;
 import com.manager.model.dao.NewCompany;
@@ -25,6 +26,16 @@ public class MainServlet extends HttpServlet {
 		String parameterAction = request.getParameter("action");
 		String 			  view = null;
 		
+		String nameClass = "com.manager.model.dao" + parameterAction;
+		
+		try {
+			Class auxClass = Class.forName(nameClass);
+			Object object = auxClass.newInstance();
+			Action action = (Action) object;
+			String name = action.performs(request, response);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		if (parameterAction.equals("ListCompanies")) {
 			
 			ListCompanies listcompanies = new ListCompanies();
@@ -53,7 +64,7 @@ public class MainServlet extends HttpServlet {
 		} else if(parameterAction.equals("AddCompany")) {
 			
 			AddCompany addCompany = new AddCompany();
-			view = addCompany.permforms();
+			view = addCompany.performs(request,response);
 			
 		}
 

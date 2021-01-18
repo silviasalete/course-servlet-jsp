@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.manager.model.bean.Company;
 
-public class NewCompany {
+public class NewCompany implements Action {
 
 	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Adding new compan");

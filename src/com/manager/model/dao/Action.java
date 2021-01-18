@@ -6,9 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AddCompany implements Action {
-	
-	public String performs(HttpServletRequest request, HttpServletResponse response) {
-			return "forward:/formNewCompany.jsp";
-	}
+public interface Action {
+
+	String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }
