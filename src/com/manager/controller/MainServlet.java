@@ -24,48 +24,17 @@ public class MainServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String parameterAction = request.getParameter("action");
-		String 			  view = null;
 		
-		String nameClass = "com.manager.model.dao" + parameterAction;
+		String nameClass = "com.manager.model.dao." + parameterAction;
+		String view;
 		
 		try {
 			Class auxClass = Class.forName(nameClass);
 			Object object = auxClass.newInstance();
 			Action action = (Action) object;
-			String name = action.performs(request, response);
+			view = action.performs(request, response);
 		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		if (parameterAction.equals("ListCompanies")) {
-			
-			ListCompanies listcompanies = new ListCompanies();
-			view = listcompanies.performs(request,response);
-			
-		} else if(parameterAction.equals("RemoveCompanies")) {
-			
-			RemoveCompanies removeCompanies = new RemoveCompanies();
-			view = removeCompanies.performs(request, response);
-			
-		} else if(parameterAction.equals("ShowCompanies")) {
-			
-			ShowCompanies showCompanies = new ShowCompanies();
-			view = showCompanies.performs(request, response);
-			
-		} else if(parameterAction.equals("NewCompany")) {
-			
-			NewCompany newCompany = new  NewCompany();			
-			view = newCompany.performs(request, response);
-			
-		} else if(parameterAction.equals("UpdateCompanies")) {
-			
-			UpdateCompanies updateCompanies = new UpdateCompanies();
-			view = updateCompanies.performs(request,response);
-			
-		} else if(parameterAction.equals("AddCompany")) {
-			
-			AddCompany addCompany = new AddCompany();
-			view = addCompany.performs(request,response);
-			
+			throw new ServletException(e);
 		}
 
 		String[] typeOfAddress = view.split(":");
@@ -78,9 +47,7 @@ public class MainServlet extends HttpServlet {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view"+typeOfAddress[1]);		
 			rd.forward(request, response);
-		}
-
-
+		}  
 	}
 
 }
