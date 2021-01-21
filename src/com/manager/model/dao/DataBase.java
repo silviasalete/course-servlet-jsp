@@ -29,6 +29,13 @@ public class DataBase {
 		User user1 = new User();
 		user1.setLogin("silvia");
 		user1.setPassword("12345");
+		
+		User user2 = new User();
+		user2.setLogin("salete");
+		user2.setPassword("54321");
+		
+		listUser.add(user1);
+		listUser.add(user2);
 	}
 	
 	public void add(Company company) { 
