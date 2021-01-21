@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.Random;
 
 import com.manager.model.bean.Company;
+import com.manager.model.bean.User;
 
 public class DataBase {
 	
 	private static   List<Company> list = new ArrayList<>();
+	private static   List<User> listUser = new ArrayList<>();
+	
 	private static Integer sequenialKey = 1; 
 	
 	static {
