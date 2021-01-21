@@ -25,6 +25,10 @@ public class DataBase {
 		
 		list.add(company1);
 		list.add(company2);
+		
+		User user1 = new User();
+		user1.setLogin("silvia");
+		user1.setPassword("12345");
 	}
 	
 	public void add(Company company) { 
