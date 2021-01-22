@@ -10,8 +10,8 @@
 <body>
 
 	<form action="${linkInputServlet}">
-		Login:    <input type="text" name"login"/>
-		Password: <input type="password" name="password">
+		Login:    <input type="text" name="login"/>
+		Password: <input type="password" name="password"/>
 		
 		<input type="hidden" name="action" value="Login">
 		<input type="submit" value="Send"/>
