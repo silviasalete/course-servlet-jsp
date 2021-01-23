@@ -16,7 +16,7 @@ public class Login implements Action {
 		
 		System.out.println("Logging in "+login);
 		
-		return null;
+		return "redirect:mainServlet?action=ListCompanies";
 	
 	
 	}
