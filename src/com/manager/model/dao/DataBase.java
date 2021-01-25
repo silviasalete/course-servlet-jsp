@@ -81,5 +81,10 @@ public class DataBase {
 			}
 		}
 		return null;
+	}
+
+	public User isUser(String login, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 }
