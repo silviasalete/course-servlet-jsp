@@ -84,7 +84,12 @@ public class DataBase {
 	}
 
 	public User isUser(String login, String password) {
-		// TODO Auto-generated method stub
+
+		for (User user: listUser) {
+			if (user.validation(login,password)) {
+				return user;
+			}
+		}
 		return null;
 	} 
 }
