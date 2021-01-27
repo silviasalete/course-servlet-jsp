@@ -21,7 +21,12 @@ public class Login implements Action {
 		DataBase database = new DataBase();		
 		User user = database.isUser(login,password);
 		
-		return "redirect:mainServlet?action=ListCompanies";
+		if (user != null) {
+			System.out.println("Ok");
+			return "redirect:mainServlet?action=ListCompanies";
+		}else {
+			return "redirect:mainServlet?action=LoginForm";
+		}
 	
 	
 	}
