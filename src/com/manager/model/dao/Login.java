@@ -20,13 +20,16 @@ public class Login implements Action {
 		System.out.println("Logging in "+login);
 		
 		DataBase database = new DataBase();		
-		User user = database.isUser(login,password);
+		User         user = database.isUser(login,password);
 		
 		if (user != null) {
+			
 			System.out.println("User exists");
 			HttpSession session = request.getSession();
+			System.out.println("session: "+session.getId());
 			session.setAttribute("user", user);
 			return "redirect:mainServlet?action=ListCompanies";
+			
 		}else {
 			return "redirect:mainServlet?action=LoginForm";
 		}

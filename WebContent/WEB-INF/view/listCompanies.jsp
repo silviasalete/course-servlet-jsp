@@ -10,7 +10,11 @@
 <title>Lista Empresas</title>
 </head>
 <body>
-
+	
+	Welcome ${user.login}
+	
+	<br><br><br>
+	
 	<c:if test="${not empty nameCompany}">
 		Company ${nameCompany} created !
 	</c:if>
