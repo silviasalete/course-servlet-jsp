@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.manager.model.dao.Action;
 import com.manager.model.dao.AddCompany;
@@ -22,8 +23,18 @@ import com.manager.model.dao.UpdateCompanies;
 public class MainServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String parameterAction = request.getParameter("action");
+		
+		HttpSession session = request.getSession();
+		boolean userIsNotLogged = (session.getAttribute("user") == null);
+		boolean isProtectedAction = !(parameterAction.equals("LoginForm") || parameterAction.equals("Login"));
+		
+		if (isProtectedAction && userIsNotLogged) {
+			
+			response.sendRedirect("redirect:mainServlet?action=LoginForm");
+			return;
+		}
 		
 		String nameClass = "com.manager.model.dao." + parameterAction;
 		String view;
