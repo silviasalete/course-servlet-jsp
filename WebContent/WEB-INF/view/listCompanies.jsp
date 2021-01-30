@@ -11,9 +11,7 @@
 </head>
 <body>
 	
-	<a href="/manager/mainServlet?action=Logout">Exit</a>
-	
-	<br><br><br>
+	<c:import url="logout-partial.jsp"/>
 	
 	Welcome ${user.login}
 	
