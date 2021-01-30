@@ -13,6 +13,7 @@ public class Logout implements Action {
 	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+//		session.removeAttribute("user");
 		session.invalidate();
 		
 		return "redirect:mainServlet?action=LoginForm";

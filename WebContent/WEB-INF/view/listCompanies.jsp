@@ -11,6 +11,10 @@
 </head>
 <body>
 	
+	<a href="/manager/mainServlet?action=Logout">Exit</a>
+	
+	<br><br><br>
+	
 	Welcome ${user.login}
 	
 	<br><br><br>
