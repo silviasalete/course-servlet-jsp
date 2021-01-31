@@ -9,8 +9,6 @@ public class RemoveCompanies implements Action {
 
 	public String performs(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		System.out.println("removing companies");
-		
 		String parameterId = request.getParameter("id");
 		Integer 		id = Integer.valueOf(parameterId);		
 		DataBase  dataBase = new DataBase();

@@ -12,9 +12,7 @@ import com.manager.model.bean.Company;
 
 public class ShowCompanies implements Action {
 
-	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-		
-		System.out.println("updating companies");
+	public String performs(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String 	 parameterId = request.getParameter("id");
 		Integer           id = Integer.valueOf(parameterId);
