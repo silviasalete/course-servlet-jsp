@@ -26,15 +26,15 @@ public class MainServlet extends HttpServlet {
 
 		String parameterAction = request.getParameter("action");
 		
-		HttpSession session = request.getSession();
-		boolean userIsNotLogged = (session.getAttribute("user") == null);
-		boolean isProtectedAction = !(parameterAction.equals("LoginForm") || parameterAction.equals("Login"));
-		
-		if (isProtectedAction && userIsNotLogged) {
-			
-			response.sendRedirect("redirect:mainServlet?action=LoginForm");
-			return;
-		}
+//		HttpSession session = request.getSession();
+//		boolean userIsNotLogged = (session.getAttribute("user") == null);
+//		boolean isProtectedAction = !(parameterAction.equals("LoginForm") || parameterAction.equals("Login"));
+//		
+//		if (isProtectedAction && userIsNotLogged) {
+//			
+//			response.sendRedirect("redirect:mainServlet?action=LoginForm");
+//			return;
+//		}
 		
 		String nameClass = "com.manager.model.dao." + parameterAction;
 		String view;
