@@ -12,4 +12,22 @@
     <servlet-name>HomeServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  
+  <filter>
+  	<filter-name>MonitoringFilter</filter-name>
+  	<filter-class>com.manager.controller.MonitoringFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>MonitoringFilter</filter-name>
+  	<url-pattern>/mainServlet</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>AuthorizationFilter</filter-name>
+  	<filter-class>com.manager.controller.AuthorizationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>AuthorizationFilter</filter-name>
+  	<url-pattern>/mainServlet</url-pattern>
+  </filter-mapping>
 </web-app>
