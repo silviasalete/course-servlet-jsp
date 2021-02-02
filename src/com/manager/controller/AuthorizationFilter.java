@@ -37,7 +37,7 @@ public class AuthorizationFilter implements Filter{
 		
 		if (isProtectedAction && userIsNotLogged) {
 			
-			response.sendRedirect("redirect:mainServlet?action=LoginForm");
+			response.sendRedirect("mainServlet?action=LoginForm");
 			return;
 		}
 		
