@@ -36,29 +36,29 @@ public class MainServlet extends HttpServlet {
 //			return;
 //		}
 		
-		String nameClass = "com.manager.model.dao." + parameterAction;
-		String view;
-		
-		try {
-			Class auxClass = Class.forName(nameClass);
-			Object object = auxClass.newInstance();
-			Action action = (Action) object;
-			view = action.performs(request, response);
-		} catch (Exception e) {
-			throw new ServletException(e);
-		}
-
-		String[] typeOfAddress = view.split(":");
-		
-		if (typeOfAddress [0].equals("redirect")) {
-			
-			response.sendRedirect(typeOfAddress[1]);
-			
-		}else {
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view"+typeOfAddress[1]);		
-			rd.forward(request, response);
-		}  
+//		String nameClass = "com.manager.model.dao." + parameterAction;
+//		String view;
+//		
+//		try {
+//			Class auxClass = Class.forName(nameClass);
+//			Object object = auxClass.newInstance();
+//			Action action = (Action) object;
+//			view = action.performs(request, response);
+//		} catch (Exception e) {
+//			throw new ServletException(e);
+//		}
+//
+//		String[] typeOfAddress = view.split(":");
+//		
+//		if (typeOfAddress [0].equals("redirect")) {
+//			
+//			response.sendRedirect(typeOfAddress[1]);
+//			
+//		}else {
+//			
+//			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view"+typeOfAddress[1]);		
+//			rd.forward(request, response);
+//		}  
 	}
 
 }
