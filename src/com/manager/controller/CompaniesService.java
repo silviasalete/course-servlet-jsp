@@ -23,18 +23,29 @@ public class CompaniesService extends HttpServlet {
 		
 		List<Company> companies = new DataBase().getCompanies();
 		
-//		Gson gson = new Gson();
-//		String json = gson.toJson(companies);
-//		
-//		response.setContentType("application/json");
-//		response.getWriter().print(json);
+		String value = request.getHeader("accept");
 		
-		XStream xstream = new XStream();
-		xstream.alias("company",Company.class);
-		String      xml = xstream.toXML(companies);
+		if (value.endsWith("xml")) {
+			XStream xstream = new XStream();
+			xstream.alias("company",Company.class);
+			String      xml = xstream.toXML(companies);
+			
+			response.setContentType("application/xml");
+			response.getWriter().print(xml);
+			
+		} else if(value.endsWith("json")){
+			Gson gson = new Gson();
+			String json = gson.toJson(companies);
+			
+			response.setContentType("application/json");
+			response.getWriter().print(json);
+		} else {
+
+			response.setContentType("application/json");
+			response.getWriter().print("{'message':'no content'}");
+		}
 		
-		response.setContentType("application/xml");
-		response.getWriter().print(xml);
+		
 	}
 
 }
