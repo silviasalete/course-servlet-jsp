@@ -23,9 +23,11 @@ public class CompaniesService extends HttpServlet {
 		
 		List<Company> companies = new DataBase().getCompanies();
 		
-		String value = request.getHeader("accept");
+		String value = request.getHeader("Accept");
 		
-		if (value.endsWith("xml")) {
+		System.out.println(value);
+		
+		if (value.contains("xml")) {
 			XStream xstream = new XStream();
 			xstream.alias("company",Company.class);
 			String      xml = xstream.toXML(companies);
