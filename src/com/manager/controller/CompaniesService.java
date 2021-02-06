@@ -25,8 +25,6 @@ public class CompaniesService extends HttpServlet {
 		
 		String value = request.getHeader("Accept");
 		
-		System.out.println(value);
-		
 		if (value.contains("xml")) {
 			XStream xstream = new XStream();
 			xstream.alias("company",Company.class);
