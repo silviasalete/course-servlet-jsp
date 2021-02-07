@@ -26,9 +26,7 @@ public class ControllerFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
-		 
-		System.out.println("ControllerFilter");
-		
+		 		
 		HttpServletRequest   request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String       parameterAction = request.getParameter("action");		
