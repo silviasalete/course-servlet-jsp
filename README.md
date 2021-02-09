@@ -1,3 +1,4 @@
+> pt-br
 # Java Servlet
 ## Fundamentos da programação web Java
 * Entenda o que é um Servlet
@@ -14,8 +15,10 @@
 * Implemente o seu próprio WebService com JSON e XML
 
 [Certificado 1](https://1drv.ms/u/s!AqlOEWgIst8TiVEXCOBmMLK0l1_V?e=XKM5Y2)
+
 [Certificado 2](https://1drv.ms/u/s!AqlOEWgIst8TiTBO7SS07VBGSyYY)
 
+> pt-en
 # Java Servlet
 ## Fundamentals of web programming Java
 * _Understand what a Servlet_
@@ -24,7 +27,7 @@
 * _Create a complete CRUD and deploy with Tomcat_
 * _Know what inversion of control is_
 
-##Authentication, authorization and the standard MVC
+## Authentication, authorization and the standard MVC
 * _Develops a system with authentication and authorization_
 * _Use the HttpSession object and learn about Cookies_
 * _Build MVC layers based on Filters and Servlets_
@@ -32,4 +35,5 @@
 * _Implement your own WebService with JSON and XML_
 
 [Certificate 1](https://1drv.ms/u/s!AqlOEWgIst8TiVEXCOBmMLK0l1_V?e=XKM5Y2)
+
 [Certificate 2](https://1drv.ms/u/s!AqlOEWgIst8TiTBO7SS07VBGSyYY)
